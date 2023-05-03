@@ -12,6 +12,7 @@ create table student
   email varchar(30) not null, 
   pass varchar(30) not null,
   phone varchar(30) not null,
+  dob varchar(10) not null,
   primary key (regNo)
  );
 
@@ -23,7 +24,7 @@ create table course
  );
 
 create table assignment_exam
- (ae_id  varchar(5) not null,
+ (ae_id  varchar(10) not null,
   maxmarks numeric(2,0) not null,
   course_id varchar(8) not null,
   primary key (ae_id),
