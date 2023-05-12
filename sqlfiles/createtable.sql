@@ -34,11 +34,26 @@ CREATE TABLE enrolls (
 );
 CREATE TABLE takes (
   regNo DOUBLE NOT NULL,
-  ae_id VARCHAR(5) NOT NULL,
+  ae_id VARCHAR(10) NOT NULL,
   marks NUMERIC(2,0) NOT NULL,
   PRIMARY KEY (regNo, ae_id),
   FOREIGN KEY (regNo) REFERENCES student(regNo) ON DELETE CASCADE,
   FOREIGN KEY (ae_id) REFERENCES assignment(ae_id) ON UPDATE CASCADE
+);
+
+CREATE TABLE belongs (
+  ae_id VARCHAR(10) NOT NULL,
+  course_id VARCHAR(8) NOT NULL,
+  PRIMARY KEY (ae_id, course_id),
+  FOREIGN KEY (ae_id) REFERENCES assignment(ae_id) ON DELETE CASCADE,
+  FOREIGN KEY (course_id) REFERENCES course(course_id) ON DELETE CASCADE
+);
+CREATE TABLE sem (
+  regNo DOUBLE NOT NULL,
+  sem NUMERIC(1,0) NOT NULL,
+  gpa NUMERIC(2,2) CHECK (gpa >= 0 AND gpa <= 10),
+  PRIMARY KEY(regNo, sem),
+  FOREIGN KEY (regNo) REFERENCES student(regNo) ON DELETE CASCADE
 );
 
 		
