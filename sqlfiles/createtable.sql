@@ -30,6 +30,6 @@ CREATE TABLE enrolls (
   grade VARCHAR(2) CHECK (grade IN ('A+', 'A', 'B', 'C', 'D', 'E', 'F')),
   PRIMARY KEY (regNo, course_id, sem),
   FOREIGN KEY (regNo) REFERENCES student(regNo) ON DELETE CASCADE,
-  FOREIGN KEY (course_id) REFERENCES course(course_id) ON DELETE CASCADE
+  FOREIGN KEY (course_id) REFERENCES course(course_id) ON UPDATE CASCADE
 );
 		
