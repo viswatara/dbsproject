@@ -32,4 +32,13 @@ CREATE TABLE enrolls (
   FOREIGN KEY (regNo) REFERENCES student(regNo) ON DELETE CASCADE,
   FOREIGN KEY (course_id) REFERENCES course(course_id) ON UPDATE CASCADE
 );
+CREATE TABLE takes (
+  regNo DOUBLE NOT NULL,
+  ae_id VARCHAR(5) NOT NULL,
+  marks NUMERIC(2,0) NOT NULL,
+  PRIMARY KEY (regNo, ae_id),
+  FOREIGN KEY (regNo) REFERENCES student(regNo) ON DELETE CASCADE,
+  FOREIGN KEY (ae_id) REFERENCES assignment(ae_id) ON UPDATE CASCADE
+);
+
 		
