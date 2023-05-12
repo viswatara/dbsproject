@@ -22,3 +22,14 @@ CREATE TABLE assignment (
   PRIMARY KEY (ae_id),
   FOREIGN KEY (course_id) REFERENCES course(course_id) ON UPDATE CASCADE
 );
+
+CREATE TABLE enrolls (
+  regNo VARCHAR(9) NOT NULL,
+  course_id VARCHAR(8) NOT NULL,
+  sem NUMERIC(1,0) NOT NULL,
+  grade VARCHAR(2) CHECK (grade IN ('A+', 'A', 'B', 'C', 'D', 'E', 'F')),
+  PRIMARY KEY (regNo, course_id, sem),
+  FOREIGN KEY (regNo) REFERENCES student(regNo) ON DELETE CASCADE,
+  FOREIGN KEY (course_id) REFERENCES course(course_id) ON DELETE CASCADE
+);
+		
