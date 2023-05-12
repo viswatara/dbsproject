@@ -51,7 +51,7 @@ CREATE TABLE belongs (
 CREATE TABLE sem (
   regNo DOUBLE NOT NULL,
   sem NUMERIC(1,0) NOT NULL,
-  gpa NUMERIC(2,2) CHECK (gpa >= 0 AND gpa <= 10),
+  gpa NUMERIC(4,2) CHECK (gpa >= 0 AND gpa <= 10),
   PRIMARY KEY(regNo, sem),
   FOREIGN KEY (regNo) REFERENCES student(regNo) ON DELETE CASCADE
 );
