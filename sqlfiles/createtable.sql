@@ -24,7 +24,7 @@ CREATE TABLE assignment (
 );
 
 CREATE TABLE enrolls (
-  regNo VARCHAR(9) NOT NULL,
+  regNo DOUBLE NOT NULL,
   course_id VARCHAR(8) NOT NULL,
   sem NUMERIC(1,0) NOT NULL,
   grade VARCHAR(2) CHECK (grade IN ('A+', 'A', 'B', 'C', 'D', 'E', 'F')),
